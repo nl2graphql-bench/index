@@ -51,7 +51,6 @@ README for the fields and for why the other schema columns are unsuitable.
 |---|---|
 | generation | https://github.com/nl2graphql-bench/generation |
 | evaluation | https://github.com/nl2graphql-bench/evaluation |
-| validation | not yet published |
 
 **generation** is the AutoGraphQL Bring-Your-Own-Schema framework: schema
 feasibility analysis, schema-aware query synthesis, schema and execution
@@ -68,7 +67,11 @@ from rgeval import score_pair
 score_pair(schema, reference_query, model_query)
 ```
 
-The validation component is still being prepared for release.
+Validation is part of **generation**, not a separate component. The same
+framework validates each generated query against its schema and by executing it,
+then deduplicates by canonical hash. Its `website/` serves both the Dataset
+Generator and the Dataset Explorer for inspecting and curating what comes out;
+see that repository's *Running Locally* section.
 
 ## Submitting a result
 
