@@ -50,7 +50,7 @@ README for the fields and for why the other schema columns are unsuitable.
 | component | repository |
 |---|---|
 | generation | https://github.com/nl2graphql-bench/generation |
-| evaluation | not yet published |
+| evaluation | https://github.com/nl2graphql-bench/evaluation |
 | validation | not yet published |
 
 **generation** is the AutoGraphQL Bring-Your-Own-Schema framework: schema
@@ -58,15 +58,33 @@ feasibility analysis, schema-aware query synthesis, schema and execution
 validation with deduplication, then natural-language generation. It produced the
 datasets above.
 
-The evaluation and validation components are being prepared for release. This
-table is updated as they land.
+**evaluation** is RGEval, the scorer. It compares a generated query with the
+reference by normalising both against the schema and comparing them as graphs,
+so a query that is correct but written differently is not marked wrong. It is a
+Python package:
+
+```python
+from rgeval import score_pair
+score_pair(schema, reference_query, model_query)
+```
+
+The validation component is still being prepared for release.
 
 ## Submitting a result
 
 The submission process is described on the leaderboard site under **Submit**.
-In outline: score your model on the 6,403-instance public benchmark, open a
-submission issue with your predictions and a model card, and we then score
-your model on the hidden test set before posting a headline number.
+In outline: score your model on the 6,403-instance public benchmark with the
+same scorer we use, open a submission issue with your predictions and a model
+card, and we then score your model on the hidden test set before posting a
+headline number.
+
+You can run the scorer yourself, so your reported number and ours are produced
+the same way:
+
+```bash
+git clone https://github.com/nl2graphql-bench/evaluation
+pip install -e "evaluation[datasets]"
+```
 
 Do not include production schemas, credentials or internal API packages in a
 submission. Score against the public benchmark only.
