@@ -40,18 +40,19 @@ README for the fields and for why the other schema columns are unsuitable.
 
 ## Code
 
-| component | repository | status |
-|---|---|---|
-| generation | https://github.com/keya-x/autographql | public |
-| evaluation | — | not yet published |
-| validation | — | not yet published |
+| component | repository |
+|---|---|
+| generation | https://github.com/nl2graphql-bench/generation |
+| evaluation | not yet published |
+| validation | not yet published |
 
-`autographql` is the Bring-Your-Own-Schema generation framework: schema
-feasibility analysis, schema-aware query synthesis, validation and
-deduplication, then natural-language generation.
+**generation** is the AutoGraphQL Bring-Your-Own-Schema framework: schema
+feasibility analysis, schema-aware query synthesis, schema and execution
+validation with deduplication, then natural-language generation. It produced the
+datasets above.
 
-The evaluation and validation components are being prepared for release and are
-not public yet. This table is updated as they land.
+The evaluation and validation components are being prepared for release. This
+table is updated as they land.
 
 ## Submitting a result
 
