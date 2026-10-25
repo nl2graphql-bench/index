@@ -72,11 +72,10 @@ The validation component is still being prepared for release.
 
 ## Submitting a result
 
-The submission process is described on the leaderboard site under **Submit**.
-In outline: score your model on the 6,403-instance public benchmark with the
-same scorer we use, open a submission issue with your predictions and a model
-card, and we then score your model on the hidden test set before posting a
-headline number.
+Score your model on the 6,403-instance public benchmark with the same scorer we
+use, then open an issue on this repository with your predictions and a model
+card. We score your model on the hidden test set before posting a headline
+number, so the leaderboard figure is ours to reproduce rather than self-reported.
 
 You can run the scorer yourself, so your reported number and ours are produced
 the same way:
