@@ -23,15 +23,22 @@ not exact string match.
 
 **https://github.com/nl2graphql-bench/datasets** — MIT License
 
-| split | rows | schemas | published |
+| set | rows | schemas | file |
 |---|---|---|---|
-| train | 9,118 | 104 | yes |
-| public test | 6,403 | 49 | yes |
-| hidden test | 2,100 | 20 | **no, withheld** |
+| train | 9,118 | 104 | `train_data.jsonl.gz` |
+| public test | 6,403 | 49 | `test_data.jsonl.gz` |
+| hidden test | 2,100 | 20 | not released |
 
-Train and test schemas are disjoint. The hidden split is not released: it is
-what submissions are verified against, so publishing it would make that
-verification meaningless.
+No schema appears in more than one of the three sets, so every test query
+targets an API the model has not been trained on.
+
+The hidden test set is not released. It is what we score submissions against,
+so if it were public a model could be tuned on it and the score would mean
+nothing.
+
+The public test file contains two parts, `test_main` (1,845 rows) and
+`test_part2` (4,558 rows), marked by a `split` field on each row. Both are
+public and both count toward a submission's score.
 
 Each row is a validated triple of (GraphQL schema, natural-language query,
 ground-truth GraphQL query). Every published row's query validates against its
@@ -58,8 +65,8 @@ table is updated as they land.
 
 The submission process is described on the leaderboard site under **Submit**.
 In outline: score your model on the 6,403-instance public benchmark, open a
-submission issue with your predictions and a model card, and the hidden split
-is then scored independently before a headline number is posted.
+submission issue with your predictions and a model card, and we then score
+your model on the hidden test set before posting a headline number.
 
 Do not include production schemas, credentials or internal API packages in a
 submission. Score against the public benchmark only.
