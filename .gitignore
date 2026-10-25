@@ -1,0 +1,15 @@
+# This repo is an INDEX: links only, no data and no code.
+#
+# The 2,100-row hidden benchmark must never be uploaded anywhere - not to a
+# public repo, not to a private one. Its only permitted locations are local disk
+# and the internal evaluation server. Slide 15 of the EMNLP deck: "Never
+# released; used to verify every submission."
+secret_data.jsonl
+secret_dataset*
+secret_*
+*hidden*
+
+# No datasets belong here either; they live in nl2graphql-bench/datasets.
+*.jsonl
+*.jsonl.gz
+*.xlsx
